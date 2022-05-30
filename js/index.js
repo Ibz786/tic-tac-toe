@@ -61,6 +61,7 @@ function _checkDraw() {
 
 GRID_ITEMS.forEach((item) => {
 	item.addEventListener("click", e => {
+        if(e.currentTarget.innerText) return;
 		e.currentTarget.innerText = currentPlayer;
         if(_checkDraw()) {
             winnerMsgEle.innerText = `It's a Draw!`
@@ -75,7 +76,7 @@ GRID_ITEMS.forEach((item) => {
         }
         _changeCurrentPlayer();
         _showCurrentPlayer();
-	}, {once: true});
+	});
 });
 
 restartEle.addEventListener("click", () => {
